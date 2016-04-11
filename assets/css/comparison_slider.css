@@ -1,0 +1,52 @@
+.comparison-slider {
+    position:relative;
+    overflow:hidden;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+.comparison-slider .ce_image {
+    width:50.01%;
+    height:100%;
+    left:0;
+    top:0;
+    position:absolute;
+    background-position:left top;
+    background-size:auto 100%;
+}
+
+.comparison-slider .ce_image:first-child {
+    overflow:visible;
+}
+
+.comparison-slider .ce_image:last-child {
+    left:auto;
+    right:0;
+    background-position:right top;
+    overflow: hidden;
+}
+
+.comparison-slider .ce_image .drag-button {
+    width:30px;
+    height:30px;
+    right:0;
+    top:50%;
+    position:absolute;
+    margin-top:-15px;
+    margin-right:-15px;
+    border-radius:50%;
+    background:#fff url("../img/slider_tragger.png") center center no-repeat;
+    -webkit-box-shadow:0 0 10px rgba(0,0,0,.2);
+    -moz-box-shadow:0 0 10px rgba(0,0,0,.2);
+    box-shadow:0 0 10px rgba(0,0,0,.2);
+    z-index:1;
+    cursor:pointer;
+}
+
+.comparison-slider .ce_image .drag-button:hover {
+    background-color:#ededed;
+}
+
+.comparison-slider .comparison-slider-text {
+    position: absolute;
+}
