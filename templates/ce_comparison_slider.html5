@@ -1,3 +1,4 @@
+
 <div class="<?= $this->classNames ?>">
 	<div class="ce_image" img-width="<?= $this->pictureWidth ?>" img-height="<?= $this->pictureHeight ?>" style="<?= $this->pictureLeftPath ?>">
 		<div class="comparison-slider-text comparison-slider-text-left" style="<?= $this->textLeftPosition; ?>"><?= $this->textLeft; ?></div>

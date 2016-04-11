@@ -1,16 +1,15 @@
-(function($) {
 	var comparisonSliderWidth;
 	var comparisonSliderRatio;
 	var comparisonSliderClicked;
 	var comparisonSliderPositionX;
 	var mousePositionX;
-
+	
 	function initComparisonSlider() {
-		
 		var comparisonSliderClicked = false;
 			
 		if ($(".comparison-slider").length > 0) {
 			$('.comparison-slider').each(function() {
+				console.log("test");
 				comparisonSliderWidth = $(this).width();
 				$(this).find(".ce_image").each(function() {
 					// var srcToBackground = $(this).find("img").attr("src");
@@ -64,5 +63,5 @@
 		initComparisonSlider();
 	});
 
-})(jQuery);
+
 
