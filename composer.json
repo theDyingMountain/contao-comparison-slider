@@ -7,7 +7,7 @@
         "tl_content",
         "slider"
     ],
-    "type": "contao-content-element",
+    "type": "contao-module",
     "license": "LGPL-3.0+",
     "authors": [
         {
