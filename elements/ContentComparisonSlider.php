@@ -60,8 +60,7 @@
                 $pictureLeft = \FilesModel::findByUuid($this->pictureLeftSRC);
                 $pictureRight = \FilesModel::findByUuid($this->pictureRightSRC);
 
-                // echo $_SERVER["DOCUMENT_ROOT"].$pictureLeft->path;
-                list($width, $height) = getimagesize($_SERVER["DOCUMENT_ROOT"].$pictureLeft->path);
+                list($width, $height) = getimagesize(TL_ROOT."/".$pictureLeft->path);
 
                 $this->Template->pictureWidth = $width;
                 $this->Template->pictureHeight = $height;
