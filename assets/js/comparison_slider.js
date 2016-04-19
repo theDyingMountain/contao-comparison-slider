@@ -9,7 +9,6 @@
 			
 		if ($(".comparison-slider").length > 0) {
 			$('.comparison-slider').each(function() {
-				console.log("test");
 				comparisonSliderWidth = $(this).width();
 				$(this).find(".ce_image").each(function() {
 					// var srcToBackground = $(this).find("img").attr("src");
