@@ -1,15 +1,23 @@
+(function($) {
 	var comparisonSliderWidth;
 	var comparisonSliderRatio;
 	var comparisonSliderClicked;
 	var comparisonSliderPositionX;
 	var mousePositionX;
-	
+
 	function initComparisonSlider() {
+		
 		var comparisonSliderClicked = false;
 			
 		if ($(".comparison-slider").length > 0) {
 			$('.comparison-slider').each(function() {
 				comparisonSliderWidth = $(this).width();
+				if ($(this).parent().parent().parent().hasClass("vbox-content")) {
+					comparisonSliderWidth = $(this).parent().parent().parent().width();
+				}
+				else {
+					comparisonSliderWidth = $(this).width();
+				}
 				$(this).find(".ce_image").each(function() {
 					// var srcToBackground = $(this).find("img").attr("src");
 					comparisonSliderRatio = $(this).attr("img-width") / $(this).attr("img-height");
@@ -62,5 +70,5 @@
 		initComparisonSlider();
 	});
 
-
+})(jQuery);
 
