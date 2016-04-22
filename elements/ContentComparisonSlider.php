@@ -21,9 +21,9 @@
         protected $strTemplate = 'ce_comparison_slider';
 
         public function __construct($objModule, $strColumn='main') {
+            $GLOBALS['TL_JAVASCRIPT']['jqueryMobileEvents'] = 'system/modules/contao-comparison-slider/assets/js/jquery.mobile-events.min.js';
             $GLOBALS['TL_CSS']['comparisonSlider'] = 'system/modules/contao-comparison-slider/assets/css/comparison_slider.css';
             $GLOBALS['TL_JAVASCRIPT']['comparisonSlider'] = 'system/modules/contao-comparison-slider/assets/js/comparison_slider.js';
-            $GLOBALS['TL_JAVASCRIPT']['jqueryMobileEvents'] = 'system/modules/contao-comparison-slider/assets/js/jquery.mobile-events.min.js';
             parent::__construct($objModule, $strColumn);
         }
         
