@@ -13,7 +13,6 @@ usage:
 "repositories": [
 
         {
-        
             "type": "vcs",
             "url": "https://github.com/postyou/contao-comparison-slider"
         }
