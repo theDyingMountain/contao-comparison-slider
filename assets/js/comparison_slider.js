@@ -11,19 +11,16 @@
 			
 		if ($(".comparison-slider").length > 0) {
 			$('.comparison-slider').each(function() {
-				comparisonSliderWidth = $(this).width();
-				if ($(this).parent().parent().parent().hasClass("vbox-content")) {
-					comparisonSliderWidth = $(this).parent().parent().parent().width();
+
+				if ($(this).parents().hasClass("vbox-content")) {
+					comparisonSliderWidth = $(this).parents(".vbox-content").width();
 				}
 				else {
 					comparisonSliderWidth = $(this).width();
 				}
+
 				$(this).find(".ce_image").each(function() {
-					// var srcToBackground = $(this).find("img").attr("src");
 					comparisonSliderRatio = $(this).attr("img-width") / $(this).attr("img-height");
-					// var imagePath = 'url(' + srcToBackground + ')';
-					// $(this).find(".image_container").css("display", "none");
-					// $(this).css("background-image", imagePath);
 					$(this).css("height", comparisonSliderWidth / comparisonSliderRatio);
 				});
 				
@@ -35,7 +32,6 @@
 				$(this).find(".ce_image:first-child").append('<div class="drag-button"></div>');
 			});
 		
-
 			$('.comparison-slider .drag-button').tapstart(function() {
 		        comparisonSliderClicked = true;
 		        $(this).css("background-color", "#6cbb48");
