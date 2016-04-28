@@ -34,12 +34,12 @@
 		
 			$('.comparison-slider .drag-button').tapstart(function() {
 		        comparisonSliderClicked = true;
-		        $(this).css("background-color", "#6cbb48");
+		        $(this).addClass("dragged");
 		    });
 
 		    $('.comparison-slider').tapend(function() {
 		        comparisonSliderClicked = false;
-		        $('.comparison-slider .drag-button').css("background-color", "");
+		        $(this).find(".drag-button").removeClass("dragged");
 		    });
 
 		    $('.comparison-slider').tapmove(function(e, touch) {

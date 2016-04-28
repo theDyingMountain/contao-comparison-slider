@@ -43,10 +43,6 @@
     cursor:pointer;
 }
 
-.comparison-slider .ce_image .drag-button:hover {
-    background-color:#ededed;
-}
-
 .comparison-slider .comparison-slider-text {
     position: absolute;
 }
