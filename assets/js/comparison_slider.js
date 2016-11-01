@@ -2,7 +2,6 @@
 	var comparisonSliderWidth;
 	var comparisonSliderRatio;
 	var comparisonSliderClicked;
-	var comparisonSliderPositionX;
 	var mousePositionX;
 
 	function initComparisonSlider() {
@@ -46,11 +45,10 @@
 		        if (comparisonSliderClicked === false) {
 		            return;
 		        }
-				comparisonSliderPosition=$(this).offset();
-				mousePositionX = touch.position.x-comparisonSliderPosition.left;
 				
-		        $(this).find(".ce_image:first-child").css("width", mousePositionX);
-				$(this).find(".ce_image:last-child").css("width", parseInt(comparisonSliderWidth) - mousePositionX);
+				
+		        $(this).find(".ce_image:first-child").css("width", touch.offset.x);
+				$(this).find(".ce_image:last-child").css("width", parseInt(comparisonSliderWidth) - touch.offset.x);
 				
 		    });
 
