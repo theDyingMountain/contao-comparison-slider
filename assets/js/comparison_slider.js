@@ -2,7 +2,6 @@
 	var comparisonSliderWidth;
 	var comparisonSliderRatio;
 	var comparisonSliderClicked;
-	var mousePositionX;
 
 	function initComparisonSlider() {
 		
