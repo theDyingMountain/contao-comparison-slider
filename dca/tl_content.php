@@ -96,7 +96,7 @@ array_insert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textLeft'],
 		'inputType'		=> 'text',
 		'eval'          => array('maxlength' => 256, 'tl_class'=>'w50'),
-		'sql'			=> "varchar(256) NULL "
+		'sql'			=> "varchar(256) NOT NULL default ''"
 	),
 
 	'textLeftPosition' => array(
@@ -104,14 +104,14 @@ array_insert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'inputType'		=> 'select',
 		'eval'          => array('maxlength' => 256, 'tl_class'=>'w50'),
 		'options_callback' => array('tl_comparison_slider', 'getTextPositionOptions'),
-		'sql'			=> "varchar(256) NULL "
+		'sql'			=> "varchar(256) NOT NULL default ''"
 	),
 
 	'textRight' => array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['textRight'],
 		'inputType'		=> 'text',
 		'eval'          => array('maxlength' => 256, 'tl_class'=>'w50'),
-		'sql'			=> "varchar(256) NULL "
+		'sql'			=> "varchar(256) NOT NULL default ''"
 	),
 
 	'textRightPosition' => array(
@@ -119,7 +119,7 @@ array_insert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'inputType'		=> 'select',
 		'eval'          => array('maxlength' => 256, 'tl_class'=>'w50'),
 		'options_callback' => array('tl_comparison_slider', 'getTextPositionOptions'),
-		'sql'			=> "varchar(256) NULL "
+		'sql'			=> "varchar(256) NOT NULL default ''"
 	)
 ));
 
