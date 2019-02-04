@@ -51,10 +51,12 @@
         
         protected function compile() {
 
+
+            $this->Template->classNames .= "ce_comparison-slider ";
+
             foreach ($this->Template->classes as $class) {
                 $this->Template->classNames .= $class." ";
             }
-            $this->Template->classNames .= "comparison-slider";
 
             if (isset($this->pictureLeftSRC) && isset($this->pictureRightSRC)) {
                 $pictureLeft = \FilesModel::findByUuid($this->pictureLeftSRC);
@@ -73,22 +75,23 @@
 
                 $textPositions = array("textLeftPosition" => $this->textLeftPosition, "textRightPosition" => $this->textRightPosition);
 
+
                 foreach ($textPositions as $k => $v) {
                     switch ($v) {
                         case 'top-left':
-                            $this->Template->$k = "top: 0; left: 0;";
+                            $this->Template->$k = "comparison-slider-top-left";
                             break;
                         case 'top-right':
-                            $this->Template->$k = "top: 0; right: 0;";
+                            $this->Template->$k = "comparison-slider-top-right";
                             break;
                         case 'bottom-left':
-                            $this->Template->$k = "bottom: 0; left: 0;";
+                            $this->Template->$k = "comparison-slider-bottom-left";
                             break;
                         case 'bottom-right':
-                            $this->Template->$k = "bottom: 0; right: 0;";
+                            $this->Template->$k = "comparison-slider-bottom-right";
                             break;
                         default:
-                            $this->Template->$k = "top: 0; left: 0;";
+                            $this->Template->$k = "comparison-slider-top-left";
                             break;
                     }
                 }

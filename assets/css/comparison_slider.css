@@ -1,11 +1,11 @@
-.comparison-slider {
+.ce_comparison-slider {
     position:relative;
     overflow:hidden;
     margin-right:auto;
     margin-left:auto;
 }
 
-.comparison-slider .ce_image {
+.ce_comparison-slider .ce_image {
     width:50.01%;
     height:100%;
     left:0;
@@ -15,18 +15,19 @@
     background-size:auto 100%;
 }
 
-.comparison-slider .ce_image:first-child {
+.ce_comparison-slider .ce_image:first-child {
     overflow:visible;
+    /*z-index:1;*/
 }
 
-.comparison-slider .ce_image:last-child {
+.ce_comparison-slider .ce_image:last-child {
     left:auto;
     right:0;
     background-position:right top;
     overflow: hidden;
 }
 
-.comparison-slider .ce_image .drag-button {
+.ce_comparison-slider .ce_image .drag-button {
     width:30px;
     height:30px;
     right:0;
@@ -43,6 +44,28 @@
     cursor:pointer;
 }
 
-.comparison-slider .comparison-slider-text {
+.ce_comparison-slider .comparison-slider-text {
     position: absolute;
+}
+
+.ce_comparison-slider .comparison-slider-top-left {
+    top: 0;
+    left: 0;
+    text-align: left;
+}
+
+.ce_comparison-slider .comparison-slider-top-right {
+    top: 0;
+    right: 0;
+    text-align: right;
+}
+.ce_comparison-slider .comparison-slider-bottom-left {
+    bottom: 0;
+    left: 0;
+    text-align: left;
+}
+.ce_comparison-slider .comparison-slider-bottom-right {
+    bottom: 0;
+    right: 0;
+    text-align: right;
 }
