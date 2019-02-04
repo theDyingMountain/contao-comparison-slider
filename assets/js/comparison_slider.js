@@ -28,6 +28,8 @@
 				$(this).find(".ce_image:last-child").css("width", "");
 				$(this).find(".drag-button").remove();
 				$(this).find(".ce_image:first-child").append('<div class="drag-button"></div>');
+
+				$(this).find(".comparison-slider-text").css("width", comparisonSliderWidth/2);
 			});
 
 			$('.ce_comparison-slider  .drag-button').tapstart(function() {
@@ -47,6 +49,7 @@
 				
 
 		        $(this).find(".ce_image:first-child").css("width", touch.offset.x);
+
 				$(this).find(".ce_image:last-child").css("width", parseInt(comparisonSliderWidth) - touch.offset.x);
 				
 		    });
