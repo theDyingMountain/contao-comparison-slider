@@ -44,8 +44,32 @@
     cursor:pointer;
 }
 
+.ce_comparison-slider .ce_image:first-child::before {
+    width: 1px;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+    display: block;
+    background-color: #fff;
+    content: "";
+    z-index: 1;
+}
+
 .ce_comparison-slider .comparison-slider-text {
     position: absolute;
+    padding:10px 15px;
+    text-align:left;
+    color:#fff;
+    pointer-events: none;
+    -webkit-text-shadow: 1px 1px 2px #000;
+    -moz-text-shadow: 1px 1px 2px #000;
+    text-shadow: 1px 1px 2px #000;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .ce_comparison-slider .comparison-slider-top-left {
