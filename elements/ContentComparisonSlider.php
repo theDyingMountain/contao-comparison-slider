@@ -54,8 +54,10 @@
 
             $this->Template->classNames .= "ce_comparison-slider ";
 
-            foreach ($this->Template->classes as $class) {
-                $this->Template->classNames .= $class." ";
+            if (!empty($this->Template->classes)) {
+                foreach ($this->Template->classes as $class) {
+                    $this->Template->classNames .= $class." ";
+                }
             }
 
             if (isset($this->pictureLeftSRC) && isset($this->pictureRightSRC)) {

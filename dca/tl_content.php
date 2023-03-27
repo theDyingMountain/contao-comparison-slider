@@ -133,20 +133,23 @@ class tl_comparison_slider extends \Backend {
 		$pictureLeft = \FilesModel::findByUuid($dc->activeRecord->pictureLeftSRC);
 		$pictureRight = \FilesModel::findByUuid($dc->activeRecord->pictureRightSRC);
 
-		list($pictureLeftWidth, $pictureLeftHeight) = getimagesize("../".$pictureLeft->path);
-		list($pictureRightWidth, $pictureRightHeight) = getimagesize("../".$pictureRight->path);
+		if (!empty($pictureLeft) && !empty($pictureRight)) {
+			list($pictureLeftWidth, $pictureLeftHeight) = getimagesize("../".$pictureLeft->path);
+			list($pictureRightWidth, $pictureRightHeight) = getimagesize("../".$pictureRight->path);
 
-		if ($pictureLeftWidth !== $pictureRightWidth || $pictureLeftHeight !== $pictureRightHeight) {
-			Message::addError("Die Dimensionen (Breite, Höhe) der Bilder stimmen nicht überein!");
-			$dc->activeRecord->pictureLeftSRC = null;
-			$dc->activeRecord->pictureRightSRC = null;
 
-			$this->Database->query("UPDATE tl_content SET pictureLeftSRC=null, pictureRightSRC=null WHERE id=".$dc->activeRecord->id);
-			
-			unset($_POST['saveNclose']);
-			unset($_POST['saveNback']);		
-			unset($_POST['saveNcreate']);		
-			unset($_POST['saveNedit']);		
+			if ($pictureLeftWidth !== $pictureRightWidth || $pictureLeftHeight !== $pictureRightHeight) {
+				Message::addError("Die Dimensionen (Breite, Höhe) der Bilder stimmen nicht überein!");
+				$dc->activeRecord->pictureLeftSRC = null;
+				$dc->activeRecord->pictureRightSRC = null;
+
+				$this->Database->query("UPDATE tl_content SET pictureLeftSRC=null, pictureRightSRC=null WHERE id=".$dc->activeRecord->id);
+
+				unset($_POST['saveNclose']);
+				unset($_POST['saveNback']);
+				unset($_POST['saveNcreate']);
+				unset($_POST['saveNedit']);
+			}
 		}
 	}
 
