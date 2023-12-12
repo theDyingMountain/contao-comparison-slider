@@ -1,10 +1,6 @@
-
 <div class="<?= $this->classNames ?>">
-	<div class="ce_image" img-width="<?= $this->pictureWidth ?>" img-height="<?= $this->pictureHeight ?>" style="<?= $this->pictureLeftPath ?>">
-		<div class="comparison-slider-text <?= $this->textLeftPosition; ?>"><?= $this->textLeft; ?></div>
-		<div class="drag-button"></div>
-	</div>
-	<div class="ce_image" img-width="<?= $this->pictureWidth ?>" img-height="<?= $this->pictureHeight ?>" style="<?= $this->pictureRightPath ?>">
-		<div class="comparison-slider-text <?= $this->textRightPosition; ?>"><?= $this->textRight; ?></div>
-	</div>
+
+	<?php $this->insert('image', $this->picture_one) ?>
+	<?php $this->insert('image', $this->picture_two) ?>
+
 </div>

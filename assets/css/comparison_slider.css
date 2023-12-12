@@ -1,50 +1,64 @@
 .ce_comparison-slider {
-    position:relative;
-    overflow:hidden;
-    margin-right:auto;
-    margin-left:auto;
+    position: relative;
+    overflow: hidden;
+    margin-right: auto;
+    margin-left: auto;
 }
 
-.ce_comparison-slider .ce_image {
-    width:50.01%;
-    height:100%;
-    left:0;
-    top:0;
-    position:absolute;
-    background-position:left top;
-    background-size:auto 100%;
+.ce_comparison-slider .image_container {
+    width: 50.01%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    user-select: none;
+}
+.ce_comparison-slider .image_container:first-child {
+    z-index: 2;
+}
+.ce_comparison-slider .image_container:last-child {
+    right: 0;
+    left: auto;
+}
+.ce_comparison-slider .image_container picture {
+    height: 100%;
+}
+.ce_comparison-slider .image_container img {
+    height: 100%;
+    object-position: left top;
+    object-fit: cover;
 }
 
-.ce_comparison-slider .ce_image:first-child {
-    overflow:visible;
+.ce_comparison-slider .image_container:first-child {
+    overflow: visible;
     /*z-index:1;*/
 }
 
-.ce_comparison-slider .ce_image:last-child {
-    left:auto;
-    right:0;
-    background-position:right top;
+.ce_comparison-slider .image_container:last-child img {
+    left: auto;
+    right: 0;
+    object-position: right top;
     overflow: hidden;
 }
 
-.ce_comparison-slider .ce_image .drag-button {
-    width:30px;
-    height:30px;
-    right:0;
-    top:50%;
-    position:absolute;
-    margin-top:-15px;
-    margin-right:-15px;
-    border-radius:50%;
-    background:#fff url("../img/slider_tragger.png") center center no-repeat;
-    -webkit-box-shadow:0 0 10px rgba(0,0,0,.2);
-    -moz-box-shadow:0 0 10px rgba(0,0,0,.2);
-    box-shadow:0 0 10px rgba(0,0,0,.2);
-    z-index:1;
-    cursor:pointer;
+.ce_comparison-slider .image_container .drag-button {
+    width: 30px;
+    height: 30px;
+    right: 0;
+    top: 50%;
+    position: absolute;
+    margin-top: -15px;
+    margin-right: -15px;
+    border-radius: 50%;
+    background: #fff url('../img/slider_tragger.png') center center no-repeat;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    cursor: pointer;
 }
 
-.ce_comparison-slider .ce_image:first-child::before {
+.ce_comparison-slider .image_container:first-child::before {
     width: 1px;
     bottom: 0;
     right: 0;
@@ -52,43 +66,48 @@
     position: absolute;
     display: block;
     background-color: #fff;
-    content: "";
+    content: '';
     z-index: 1;
 }
 
-.ce_comparison-slider .comparison-slider-text {
+.ce_comparison-slider figcaption {
     position: absolute;
-    padding:10px 15px;
-    text-align:left;
-    color:#fff;
+    margin: 10px 15px;
+    text-align: left;
+    color: #fff;
     pointer-events: none;
-    -webkit-text-shadow: 1px 1px 2px #000;
+    /* -webkit-text-shadow: 1px 1px 2px #000;
     -moz-text-shadow: 1px 1px 2px #000;
-    text-shadow: 1px 1px 2px #000;
+    text-shadow: 1px 1px 2px #000; */
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    z-index: 0;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-.ce_comparison-slider .comparison-slider-top-left {
+.ce_comparison-slider .comparison-slider-top-left figcaption {
     top: 0;
     left: 0;
     text-align: left;
+    width: calc(100% - 15px);
 }
 
-.ce_comparison-slider .comparison-slider-top-right {
+.ce_comparison-slider .comparison-slider-top-right figcaption {
     top: 0;
     right: 0;
     text-align: right;
 }
-.ce_comparison-slider .comparison-slider-bottom-left {
+.ce_comparison-slider .comparison-slider-bottom-left figcaption {
     bottom: 0;
     left: 0;
     text-align: left;
+    width: calc(100% - 15px);
 }
-.ce_comparison-slider .comparison-slider-bottom-right {
+.ce_comparison-slider .comparison-slider-bottom-right figcaption {
     bottom: 0;
     right: 0;
     text-align: right;
