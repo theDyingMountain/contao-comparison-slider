@@ -11,11 +11,8 @@
 
 use Contao\Input;
 use Contao\Backend;
-use Contao\Message;
 use Contao\ArrayUtil;
-use Contao\FilesModel;
 use Contao\BackendUser;
-use Contao\DataContainer;
 
 /*
  * Config
@@ -31,7 +28,6 @@ $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function ($dc)
 		return;
 };
 
-
 /*
  * Palettes
  */
@@ -42,8 +38,6 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['palettes'], 0, array(
 
 ));
 
-$GLOBALS['TL_DCA']['tl_content']['config']['onsubmit_callback'][] = array('tl_comparison_slider', 'checkFileSize');
-
 /*
  * Fields
  */
@@ -53,10 +47,6 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['pictureLeftSRC'],
 		'inputType'		=> 'fileTree',
 		'eval'          => array('filesOnly' => true, 'fieldType' => 'radio', 'mandatory' => true, 'tl_class' => ''),
-		// 'save_callback' => array
-		// 			(
-		// 				array('tl_comparison_slider', 'checkFileSize')
-		// 			),
 		'sql'			=> 'binary(16) NULL'
 	),
 
@@ -64,10 +54,6 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['pictureRightSRC'],
 		'inputType'		=> 'fileTree',
 		'eval'          => array('filesOnly' => true, 'fieldType' => 'radio', 'mandatory' => true, 'tl_class' => ''),
-		// 'save_callback' => array
-		// 					(
-		// 						array('tl_comparison_slider', 'checkFileSize')
-		// 					),
 		'sql'			=> 'binary(16) NULL'
 	),
 
@@ -103,30 +89,6 @@ ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 ));
 
 class tl_comparison_slider extends Backend {
-
-	public function checkFileSize(DataContainer $dc) {
-		$pictureLeft = FilesModel::findByUuid($dc->activeRecord->pictureLeftSRC);
-		$pictureRight = FilesModel::findByUuid($dc->activeRecord->pictureRightSRC);
-
-		if (!empty($pictureLeft) && !empty($pictureRight)) {
-			list($pictureLeftWidth, $pictureLeftHeight) = getimagesize("../" . $pictureLeft->path);
-			list($pictureRightWidth, $pictureRightHeight) = getimagesize("../" . $pictureRight->path);
-
-
-			if ($pictureLeftWidth !== $pictureRightWidth || $pictureLeftHeight !== $pictureRightHeight) {
-				Message::addError("Die Dimensionen (Breite, Höhe) der Bilder stimmen nicht überein!");
-				$dc->activeRecord->pictureLeftSRC = null;
-				$dc->activeRecord->pictureRightSRC = null;
-
-				$this->Database->query("UPDATE tl_content SET pictureLeftSRC=null, pictureRightSRC=null WHERE id=" . $dc->activeRecord->id);
-
-				unset($_POST['saveNclose']);
-				unset($_POST['saveNback']);
-				unset($_POST['saveNcreate']);
-				unset($_POST['saveNedit']);
-			}
-		}
-	}
 
 	public function getTextPositionOptions() {
 		return array(

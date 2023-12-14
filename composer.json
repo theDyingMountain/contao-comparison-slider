@@ -14,9 +14,9 @@
             "name": "Mario Gienapp",
             "role": "Developer"
         },
-       {
-            "name":"postyou",
-            "homepage":"http://postyou.de"
+        {
+            "name": "postyou",
+            "homepage": "http://postyou.de"
         }
     ],
     "support": {
@@ -25,8 +25,8 @@
         "source": "https://github.com/postyou/contao-comparison-slider"
     },
     "require": {
-        "php": ">=7.0",
-        "contao/core-bundle":"^3.2 || ~4.4",
+        "php": ">=8.0",
+        "contao/core-bundle": " ^4.9",
         "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
     },
     "extra": {
