@@ -1,4 +1,4 @@
-<div class="<?= $this->classNames ?>">
+<div class="<?= $this->classNames ?>" <?= $this->cssID ?>>
 
 	<?php $this->insert('image', $this->picture_one) ?>
 	<?php $this->insert('image', $this->picture_two) ?>

@@ -16,8 +16,6 @@ use Contao\ContentElement;
 use Contao\BackendTemplate;
 
 class ContentComparisonSlider extends ContentElement {
-
-
     /**
      * Template
      * @var string
@@ -52,8 +50,8 @@ class ContentComparisonSlider extends ContentElement {
     protected function compile() {
         $this->Template->classNames .= "ce_comparison-slider";
 
-        if (!empty($this->Template->classes)) {
-            $this->Template->classNames .= " " . explode(" ", $this->Template->classes);
+        if (!empty($this->Template->cssID[1])) {
+            $this->Template->classNames .= " " . $this->Template->cssID[1];
         }
 
         if (isset($this->pictureLeftSRC) && isset($this->pictureRightSRC)) {

@@ -12,6 +12,7 @@
 use Contao\Input;
 use Contao\Backend;
 use Contao\Message;
+use Contao\ArrayUtil;
 use Contao\FilesModel;
 use Contao\BackendUser;
 use Contao\DataContainer;
@@ -28,29 +29,14 @@ $GLOBALS['TL_DCA']['tl_content']['config']['onload_callback'][] = function ($dc)
 
 	if (!$objUser->hasAccess('themes', 'modules') ||  !$objUser->hasAccess('layout', 'themes'))
 		return;
-
-	// $objCte = ContentModel::findByPk($dc->id);
-
-	// if ($objCte === null)
-	// 	return;
-
-	// switch ($objCte->type)
-	// {
-	// 	case 'juiTabStart':
-	// 	case 'juiTabSeparator':
-	// 	case 'juiTabStop':
-	// 		Message::addInfo(sprintf($GLOBALS['TL_LANG']['tl_content']['includeTemplate'], 'j_ui_tabs'));
-	// 		break;
-	// }
 };
 
 
 /*
  * Palettes
  */
-//$GLOBALS['TL_DCA']['tl_content']['palettes']['__selector__'][] = 'juiTabShowDropdown';
 
-array_insert($GLOBALS['TL_DCA']['tl_content']['palettes'], 0, array(
+ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['palettes'], 0, array(
 
 	'Einzelelement'		=> '{type_legend},type;{Slider Einstellungen}, pictureLeftSRC,pictureRightSRC,size, textLeft, textLeftPosition	,textRight, textRightPosition;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},guests,cssID,space;{invisible_legend:hide},invisible,start,stop',
 
@@ -58,23 +44,10 @@ array_insert($GLOBALS['TL_DCA']['tl_content']['palettes'], 0, array(
 
 $GLOBALS['TL_DCA']['tl_content']['config']['onsubmit_callback'][] = array('tl_comparison_slider', 'checkFileSize');
 
-
-/*
- * Subpalettes
- */
-//$GLOBALS['TL_DCA']['tl_content']['subpalettes']['juiTabShowDropdown'] = 'juiTabDropdownLabel';
-
-
 /*
  * Fields
  */
-array_insert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
-
-	// 'pictureInfoField' => array(
-	// 	'input_field_callback' => array(
-	// 		'tl_comparison_slider', 'pictureInfoField'
-	// 	)
-	// ),
+ArrayUtil::arrayInsert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 
 	'pictureLeftSRC' => array(
 		'label'			=> &$GLOBALS['TL_LANG']['tl_content']['pictureLeftSRC'],
@@ -130,10 +103,6 @@ array_insert($GLOBALS['TL_DCA']['tl_content']['fields'], 0, array(
 ));
 
 class tl_comparison_slider extends Backend {
-
-	// public function pictureInfoField() {
-	// 	return "<div><p class=\"tl_help tl_tip\" style=\"margin:1em 0 1em; padding-bottom:0.5em; border-bottom: solid 1px #ddd;\">Hinweis: Beide Bilder müssen in Breite und Höhe übereinstimmen.</p></div>";
-	// }
 
 	public function checkFileSize(DataContainer $dc) {
 		$pictureLeft = FilesModel::findByUuid($dc->activeRecord->pictureLeftSRC);

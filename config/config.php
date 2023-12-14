@@ -9,12 +9,13 @@
  * @license http://creativecommons.org/licenses/by-sa/4.0/ CC BY-SA 4.0
  */
 
+use Contao\ArrayUtil;
 
 /*
  * Content elements
  */
-array_insert($GLOBALS['TL_CTE'], 1, array
-(
+
+ArrayUtil::arrayInsert($GLOBALS['TL_CTE'], 1, array(
 	'Comparison Slider' => array(
 		'Einzelelement'		=> 'ComparisonSlider\ContentComparisonSlider'
 	),

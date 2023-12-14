@@ -14,22 +14,8 @@
                     comparisonSliderWidth = $(this).width();
                 }
 
-                // $(this)
-                //     .find('.image_container')
-                //     .each(function () {
-                // console.log(document.querySelector('.ce_comparison-slider img').naturalHeight);
-                // document.querySelector('.ce_comparison-slider img').onload = function () {
-                //     console.log(document.querySelector('.ce_comparison-slider img').naturalHeight);
-                // };
-                // document.querySelector('.ce_comparison-slider img')
                 comparisonSliderRatio =
                     $(this).find('img').get(0).naturalHeight / $(this).find('img').get(0).naturalWidth;
-                // console.log($(this).find('img').get(0));
-                // console.log($(this).find('img').get(0).naturalHeight);
-                // console.log(comparisonSliderWidth);
-                // console.log(comparisonSliderRatio);
-                //         $(this).css('height', comparisonSliderWidth / comparisonSliderRatio);
-                //     });
 
                 $(this).css('height', comparisonSliderWidth * comparisonSliderRatio);
                 $(this).find('.image_container:first-child').css('width', '');
