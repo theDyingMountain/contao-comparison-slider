@@ -44,11 +44,9 @@ function initComparisonSliders() {
             if (offsetX - 2 <= 0) {
                 firstImage.style.width = 0 + 'px';
                 secondImage.style.width = parseInt(comparisonSliderWidth) + 'px';
-                // return disableSliding();
             } else if (offsetX + 2 >= comparisonSliderWidth) {
                 firstImage.style.width = parseInt(comparisonSliderWidth) + 'px';
                 secondImage.style.width = 0 + 'px';
-                // return disableSliding();
             } else {
                 firstImage.style.width = offsetX + 'px';
                 secondImage.style.width =
