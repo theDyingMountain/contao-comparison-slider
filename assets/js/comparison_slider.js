@@ -40,13 +40,7 @@ function initComparisonSliders() {
             slider.classList.remove('dragged');
         }
 
-        function handleMouseSliding(e) {
-            if (comparisonSliderClicked === false) {
-                return;
-            }
-            const rect = slider.getBoundingClientRect();
-            const offsetX = e.clientX - rect.left;
-            console.log(offsetX);
+        function applyWidth(offsetX) {
             if (offsetX - 2 <= 0) {
                 firstImage.style.width = 0 + 'px';
                 secondImage.style.width = parseInt(comparisonSliderWidth) + 'px';
@@ -62,26 +56,22 @@ function initComparisonSliders() {
             }
         }
 
+        function handleMouseSliding(e) {
+            if (comparisonSliderClicked === false) {
+                return;
+            }
+            const rect = slider.getBoundingClientRect();
+            const offsetX = e.clientX - rect.left;
+            applyWidth(offsetX);
+        }
+
         function handleTouchSliding(e) {
             if (comparisonSliderClicked === false) {
                 return;
             }
             const rect = slider.getBoundingClientRect();
             const offsetX = e.touches[0].clientX - rect.left;
-            console.log(offsetX);
-            if (offsetX - 2 <= 0) {
-                firstImage.style.width = 0 + 'px';
-                secondImage.style.width = parseInt(comparisonSliderWidth) + 'px';
-                // return disableSliding();
-            } else if (offsetX + 2 >= comparisonSliderWidth) {
-                firstImage.style.width = parseInt(comparisonSliderWidth) + 'px';
-                secondImage.style.width = 0 + 'px';
-                // return disableSliding();
-            } else {
-                firstImage.style.width = offsetX + 'px';
-                secondImage.style.width =
-                    parseInt(comparisonSliderWidth) - Math.min(offsetX, comparisonSliderWidth) + 'px';
-            }
+            applyWidth(offsetX);
         }
 
         dragButton.onmousedown = enableSliding;
