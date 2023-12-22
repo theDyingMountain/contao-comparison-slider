@@ -27,6 +27,7 @@
     height: 100%;
     object-position: left top;
     object-fit: cover;
+    pointer-events: none;
 }
 
 .ce_comparison-slider .image_container:first-child {

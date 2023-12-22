@@ -46,10 +46,20 @@ function initComparisonSliders() {
             }
             const rect = slider.getBoundingClientRect();
             const offsetX = e.clientX - rect.left;
-            if (offsetX <= 0 || offsetX >= comparisonSliderWidth) return disableSliding();
-
-            firstImage.style.width = offsetX + 'px';
-            secondImage.style.width = parseInt(comparisonSliderWidth) - offsetX + 'px';
+            console.log(offsetX);
+            if (offsetX - 2 <= 0) {
+                firstImage.style.width = 0 + 'px';
+                secondImage.style.width = parseInt(comparisonSliderWidth) + 'px';
+                // return disableSliding();
+            } else if (offsetX + 2 >= comparisonSliderWidth) {
+                firstImage.style.width = parseInt(comparisonSliderWidth) + 'px';
+                secondImage.style.width = 0 + 'px';
+                // return disableSliding();
+            } else {
+                firstImage.style.width = offsetX + 'px';
+                secondImage.style.width =
+                    parseInt(comparisonSliderWidth) - Math.min(offsetX, comparisonSliderWidth) + 'px';
+            }
         }
 
         function handleTouchSliding(e) {
@@ -58,19 +68,30 @@ function initComparisonSliders() {
             }
             const rect = slider.getBoundingClientRect();
             const offsetX = e.touches[0].clientX - rect.left;
-            if (offsetX <= 0 || offsetX >= comparisonSliderWidth) return disableSliding();
-
-            firstImage.style.width = offsetX + 'px';
-            secondImage.style.width = parseInt(comparisonSliderWidth) - offsetX + 'px';
+            console.log(offsetX);
+            if (offsetX - 2 <= 0) {
+                firstImage.style.width = 0 + 'px';
+                secondImage.style.width = parseInt(comparisonSliderWidth) + 'px';
+                // return disableSliding();
+            } else if (offsetX + 2 >= comparisonSliderWidth) {
+                firstImage.style.width = parseInt(comparisonSliderWidth) + 'px';
+                secondImage.style.width = 0 + 'px';
+                // return disableSliding();
+            } else {
+                firstImage.style.width = offsetX + 'px';
+                secondImage.style.width =
+                    parseInt(comparisonSliderWidth) - Math.min(offsetX, comparisonSliderWidth) + 'px';
+            }
         }
 
         dragButton.onmousedown = enableSliding;
         dragButton.ontouchstart = enableSliding;
-
         dragButton.onmouseup = disableSliding;
+
         slider.onmouseup = disableSliding;
         slider.ontouchend = disableSliding;
-        slider.onmouseleave = disableSliding;
+        slider.onmouseleave = handleMouseSliding;
+        window.addEventListener('mouseup', disableSliding);
 
         slider.onmousemove = handleMouseSliding;
         slider.ontouchmove = handleTouchSliding;
