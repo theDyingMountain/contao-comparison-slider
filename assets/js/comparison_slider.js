@@ -88,5 +88,6 @@ function initComparisonSliders() {
     comparisonSliders.forEach((slider) => buildSlider(slider));
 }
 
+window.addEventListener('load', initComparisonSliders);
 window.addEventListener('DOMContentLoaded', initComparisonSliders);
 window.addEventListener('resize', initComparisonSliders);

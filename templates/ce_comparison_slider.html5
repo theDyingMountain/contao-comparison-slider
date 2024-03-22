@@ -1,6 +1,6 @@
 <div class="<?= $this->classNames ?>" <?= $this->cssID ?>>
 
-	<?php $this->insert('image', $this->picture_one) ?>
-	<?php $this->insert('image', $this->picture_two) ?>
+	<?php $this->insert('image', [...$this->picture_one, "picture" => [...$this->picture_one['picture'], "img" => [...$this->picture_one['picture']['img'], "loading" => "eager"]]]) ?>
+	<?php $this->insert('image', [...$this->picture_two, "picture" => [...$this->picture_two['picture'], "img" => [...$this->picture_two['picture']['img'], "loading" => "eager"]]]) ?>
 
 </div>
